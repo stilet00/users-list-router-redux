@@ -1,0 +1,26 @@
+.users {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+.control-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    margin: 0 auto;
+}
+.back-button {
+    width: 6%;
+    margin-left: 50px !important;
+}
+
+.users-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 80vh;
+    overflow: scroll;
+    margin: 10px auto;
+}
