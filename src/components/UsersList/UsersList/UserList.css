@@ -1,9 +1,12 @@
-.users {
-    display: flex;
-    flex-direction: column;
+.container {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
+}
+.users-list {
+    display: flex;
+    flex-direction: column;
+
 }
 .control-buttons {
     display: flex;

@@ -6,15 +6,15 @@ function SingleUser (props) {
     const { path } = useRouteMatch();
     return (
         <div className={"user-card"} >
-            <Link to={path + '/' + props.id}>
+            <Link to={path + props.id}>
                 <p>{props.name}</p>
                 <p>{props.email}</p>
                 <p>{props.phone}</p>
-                <p>{props.id}</p>
             </Link>
             <Button
                 variant="contained"
-                color="primary"
+                color="secondary"
+                onClick={(e) => {e.stopPropagation(); props.onDelete(props.id)}}
             >
                 DELETE
             </Button>
