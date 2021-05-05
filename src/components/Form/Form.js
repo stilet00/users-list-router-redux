@@ -5,6 +5,8 @@ import Button from "@material-ui/core/Button";
 import { FormGroup } from "@material-ui/core";
 import { addUser, editUser } from "../../store/Users/thunks";
 import { useForm } from "./hooks";
+import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
+import SaveRoundedIcon from '@material-ui/icons/SaveRounded';
 
 function Form({ users, addUser, editUser }) {
   const { onInputChange, saveCont, user } = useForm(users, addUser, editUser);
@@ -30,11 +32,11 @@ function Form({ users, addUser, editUser }) {
           onChange={onInputChange}
         />
         <Button variant="contained" type={"submit"}>
-          Save
+          <SaveRoundedIcon />
         </Button>
         <Button variant="contained" type={"button"}>
           <Link to={"/Users"} className={"button-inner"}>
-            Back
+            <ArrowBackRoundedIcon />
           </Link>
         </Button>
       </FormGroup>

@@ -5,6 +5,8 @@ import { Button } from "@material-ui/core";
 import SingleUser from "../SingleUser/SingleUser";
 import "./UserList.css";
 import { deleteUser, fetchUsers } from "../../../store/Users/thunks";
+import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
+import AddBoxRoundedIcon from '@material-ui/icons/AddBoxRounded';
 
 function UsersList({ users, deleteUser, fetchUsers }) {
   useEffect(() => {
@@ -13,10 +15,13 @@ function UsersList({ users, deleteUser, fetchUsers }) {
   return (
     <div className={"users-list container"}>
       <div className={"control-buttons"}>
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" className={'back-button'}>
           <Link to="/" className={"button-inner"}>
-            Back
+            <ArrowBackRoundedIcon />
           </Link>
+        </Button>
+        <Button variant="contained" color="primary" className={'back-button'}>
+           <Link to="/form" className={"button-inner"}><AddBoxRoundedIcon /></Link>
         </Button>
       </div>
       <div className={"users-container"}>

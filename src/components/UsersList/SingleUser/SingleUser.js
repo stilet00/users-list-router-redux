@@ -1,25 +1,26 @@
 import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import { Button } from "@material-ui/core";
+import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 import "./SingleUser.css";
-function SingleUser(props) {
+function SingleUser({name, email, phone, id, onDelete}) {
   const { path } = useRouteMatch();
   return (
     <div className={"user-card"}>
-      <Link to={path + props.id}>
-        <p>{props.name}</p>
-        <p>{props.email}</p>
-        <p>{props.phone}</p>
+      <Link to={path + id}>
+        <p>{name}</p>
+        <p>{email}</p>
+        <p>{phone}</p>
       </Link>
       <Button
         variant="contained"
         color="secondary"
         onClick={(e) => {
           e.stopPropagation();
-          props.onDelete(props.id);
+          onDelete(id);
         }}
       >
-        DELETE
+        <DeleteRoundedIcon />
       </Button>
     </div>
   );
