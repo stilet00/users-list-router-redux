@@ -9,13 +9,14 @@ import { deleteUser, fetchUsers } from "../../../store/users/thunks";
 import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
 import AddBoxRoundedIcon from "@material-ui/icons/AddBoxRounded";
 import {  ArrowForwardRounded } from "@material-ui/icons";
+import { PAGE_STEP } from "../../../constants/constants";
 
 function UsersList({ users, deleteUser, fetchUsers }) {
     const { handleFow, handlePrev, currentPage, firstBorder, secondBorder } = usePagination(fetchUsers)
     let back = firstBorder === 0 ? null : ( <Button variant="outlined" color="primary" className={"back-button"} onClick={handlePrev}>
         <ArrowBackRoundedIcon />
     </Button>)
-    let forward = users.length - secondBorder < 3 ? null : (<Button variant="outlined" color="primary" className={"back-button"} onClick={handleFow}>
+    let forward = users.length - secondBorder < PAGE_STEP ? null : (<Button variant="outlined" color="primary" className={"back-button"} onClick={handleFow}>
         <ArrowForwardRounded />
     </Button>)
   return (
