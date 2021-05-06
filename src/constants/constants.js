@@ -8,7 +8,4 @@ export const BASE_USERS_URL =
 export const INITIAL_STATE = {
   users: [],
 };
-export const SCROLL = {
-  firstLoadSize: 4,
-  loadStep: 4
-}
+export const PAGE_STEP = 4;

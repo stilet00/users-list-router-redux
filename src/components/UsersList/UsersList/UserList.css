@@ -21,7 +21,6 @@
   width: 50%;
   height: 80vh;
   margin: 10px auto;
-  overflow-y: scroll;
 }
 @media (max-width: 400px) {
   .users-container {

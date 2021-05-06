@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { useList } from "./hooks";
+import { usePagination } from "./hooks";
 import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import SingleUser from "../SingleUser/SingleUser";
@@ -8,9 +8,17 @@ import "./UserList.css";
 import { deleteUser, fetchUsers } from "../../../store/users/thunks";
 import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
 import AddBoxRoundedIcon from "@material-ui/icons/AddBoxRounded";
+import {  ArrowForwardRounded } from "@material-ui/icons";
+import { PAGE_STEP } from "../../../constants/constants";
 
 function UsersList({ users, deleteUser, fetchUsers }) {
-  const { currentRender, handleScroll } = useList(users, fetchUsers);
+    const { handleFow, handlePrev, currentPage, firstBorder, secondBorder } = usePagination(fetchUsers)
+    let back = firstBorder === 0 ? null : ( <Button variant="outlined" color="primary" className={"back-button"} onClick={handlePrev}>
+        <ArrowBackRoundedIcon />
+    </Button>)
+    let forward = users.length - secondBorder < PAGE_STEP ? null : (<Button variant="outlined" color="primary" className={"back-button"} onClick={handleFow}>
+        <ArrowForwardRounded />
+    </Button>)
   return (
     <div className={"users-list container"}>
       <div className={"control-buttons"}>
@@ -25,8 +33,8 @@ function UsersList({ users, deleteUser, fetchUsers }) {
           </Link>
         </Button>
       </div>
-      <div className={"users-container"} onScroll={handleScroll}>
-        {users.slice(0, currentRender).map((item) => (
+      <div className={"users-container"}>
+        {users.slice(firstBorder, secondBorder).map((item) => (
           <SingleUser
             key={item.id}
             {...item}
@@ -34,6 +42,11 @@ function UsersList({ users, deleteUser, fetchUsers }) {
           />
         ))}
       </div>
+        <div className={"control-buttons"}>
+            {back}
+            {currentPage}
+            {forward}
+        </div>
     </div>
   );
 }
