@@ -5,8 +5,8 @@ import Button from "@material-ui/core/Button";
 import { FormGroup } from "@material-ui/core";
 import { addUser, editUser } from "../../store/Users/thunks";
 import { useForm } from "./hooks";
-import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
-import SaveRoundedIcon from '@material-ui/icons/SaveRounded';
+import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
+import SaveRoundedIcon from "@material-ui/icons/SaveRounded";
 
 function Form({ users, addUser, editUser }) {
   const { onInputChange, saveCont, user } = useForm(users, addUser, editUser);

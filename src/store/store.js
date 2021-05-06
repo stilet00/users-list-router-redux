@@ -4,7 +4,6 @@ import thunk from "redux-thunk";
 const rootReducer = combineReducers({
   users,
 });
-
 const enchancer = applyMiddleware(thunk);
 const store = createStore(rootReducer, enchancer);
 export default store;

@@ -6,7 +6,6 @@ import {
 } from "./actions";
 
 import { INITIAL_STATE } from "../../constants/Constants";
-
 export default function reducer(state = INITIAL_STATE, { type, payload }) {
   switch (type) {
     case ACTION_CHANGE_USER:
@@ -19,9 +18,12 @@ export default function reducer(state = INITIAL_STATE, { type, payload }) {
     case ACTION_CREATE_USER:
       return { ...state, users: [...state.users, payload] };
     case ACTION_SET_USERS:
-      return { users: [...payload] };
+      return { ...state, users: [...payload] };
     case ACTION_DELETE_USER:
-      return { users: state.users.filter((item) => item.id !== payload) };
+      return {
+        ...state,
+        users: state.users.filter((item) => item.id !== payload),
+      };
     default:
       return state;
   }

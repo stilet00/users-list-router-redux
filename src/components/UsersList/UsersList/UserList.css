@@ -14,15 +14,17 @@
   margin: 0 auto;
 }
 .back-button {
-  width: 10%!important;
-
+  width: 10% !important;
 }
 
 .users-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-height: 80vh;
-  overflow: scroll;
+  width: 50%;
+  height: 80vh;
   margin: 10px auto;
+  overflow-y: scroll;
+}
+@media (max-width: 400px) {
+  .users-container {
+    width: 100%;
+  }
 }

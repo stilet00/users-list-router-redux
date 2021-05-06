@@ -8,3 +8,4 @@ export const BASE_USERS_URL =
 export const INITIAL_STATE = {
   users: [],
 };
+export const SCROLL_STEP = 4;
