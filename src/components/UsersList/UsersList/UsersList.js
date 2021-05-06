@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import SingleUser from "../SingleUser/SingleUser";
 import "./UserList.css";
-import { deleteUser, fetchUsers } from "../../../store/Users/thunks";
+import { deleteUser, fetchUsers } from "../../../store/users/thunks";
 import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
 import AddBoxRoundedIcon from "@material-ui/icons/AddBoxRounded";
 

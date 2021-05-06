@@ -5,7 +5,7 @@ import {
   ACTION_SET_USERS,
 } from "./actions";
 
-import { INITIAL_STATE } from "../../constants/Constants";
+import { INITIAL_STATE } from "../../constants/constants";
 export default function reducer(state = INITIAL_STATE, { type, payload }) {
   switch (type) {
     case ACTION_CHANGE_USER:

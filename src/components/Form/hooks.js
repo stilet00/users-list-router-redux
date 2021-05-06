@@ -1,6 +1,6 @@
 import { useHistory, useParams } from "react-router-dom";
 import { useCallback, useState } from "react";
-import { DEFAULT_USER } from "../../constants/Constants";
+import { DEFAULT_USER } from "../../constants/constants";
 
 export function useForm(users, addUser, editUser) {
   const history = useHistory();
@@ -18,11 +18,10 @@ export function useForm(users, addUser, editUser) {
     e.preventDefault();
     if (user.id) {
       editUser(user);
-      history.push("/Users");
     } else {
       addUser(user);
-      history.push("/Users");
     }
+    history.push("/users");
   }
   return {
     onInputChange,

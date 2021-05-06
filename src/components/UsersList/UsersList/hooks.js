@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { SCROLL_STEP } from "../../../constants/Constants";
+import { SCROLL_STEP } from "../../../constants/constants";
 
 export function useList(users, fetchUsers) {
   const [currentRender, setCurrentRender] = useState(4);

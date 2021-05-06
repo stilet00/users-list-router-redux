@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
 import { FormGroup } from "@material-ui/core";
-import { addUser, editUser } from "../../store/Users/thunks";
+import { addUser, editUser } from "../../store/users/thunks";
 import { useForm } from "./hooks";
 import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
 import SaveRoundedIcon from "@material-ui/icons/SaveRounded";
@@ -35,7 +35,7 @@ function Form({ users, addUser, editUser }) {
           <SaveRoundedIcon />
         </Button>
         <Button variant="contained" type={"button"}>
-          <Link to={"/Users"} className={"button-inner"}>
+          <Link to={"/users"} className={"button-inner"}>
             <ArrowBackRoundedIcon />
           </Link>
         </Button>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_USERS_URL } from "../constants/Constants";
+import { BASE_USERS_URL } from "../constants/constants";
 
 export function get() {
   return axios.get(BASE_USERS_URL);

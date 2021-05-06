@@ -1,4 +1,4 @@
-import { add, edit, get, remove } from "../../services/services";
+import { add, edit, get, remove } from "../../services/userServices";
 import { change, create, set, removal } from "./actions";
 
 export const fetchUsers = () => (dispatch) => {
