@@ -1,20 +1,31 @@
 import { useEffect, useState } from "react";
-import { SCROLL } from "../../../constants/constants";
+import { PAGE_STEP } from "../../../constants/constants";
 
-export function useList(users, fetchUsers) {
-  const [currentRender, setCurrentRender] = useState(SCROLL.firstLoadSize);
+export function usePagination(fetchUsers) {
   useEffect(() => {
     fetchUsers();
   }, [fetchUsers]);
-  function handleScroll(e) {
-    const bottom =
-      e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
-    if (bottom && currentRender <= users.length) {
-      setCurrentRender(currentRender + SCROLL.loadStep);
-    }
+
+  const [currentPage, setCurrentPage] = useState(1)
+  const [firstBorder, setFirstBorder] = useState(0)
+  const [secondBorder, setSecondBorder] = useState(PAGE_STEP)
+  function handlePrev() {
+    setCurrentPage(currentPage-1)
+    setFirstBorder(firstBorder-PAGE_STEP)
+    setSecondBorder(secondBorder-PAGE_STEP)
+  }
+  function handleFow() {
+    setCurrentPage(currentPage+1)
+    setFirstBorder(firstBorder+PAGE_STEP)
+    setSecondBorder(secondBorder+PAGE_STEP)
+
   }
   return {
-    currentRender,
-    handleScroll,
-  };
+    handlePrev,
+    handleFow,
+    currentPage,
+    firstBorder,
+    secondBorder
+
+  }
 }
