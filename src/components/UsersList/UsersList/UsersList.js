@@ -12,13 +12,7 @@ import {  ArrowForwardRounded } from "@material-ui/icons";
 import { PAGE_STEP } from "../../../constants/constants";
 
 function UsersList({ users, deleteUser, fetchUsers }) {
-    const { handleFow, handlePrev, currentPage, firstBorder, secondBorder } = usePagination(fetchUsers)
-    let back = firstBorder === 0 ? null : ( <Button variant="outlined" color="primary" className={"back-button"} onClick={handlePrev}>
-        <ArrowBackRoundedIcon />
-    </Button>)
-    let forward = users.length - secondBorder < PAGE_STEP ? null : (<Button variant="outlined" color="primary" className={"back-button"} onClick={handleFow}>
-        <ArrowForwardRounded />
-    </Button>)
+    const { handleFow, handlePrev, currentPage, firstBorder } = usePagination(fetchUsers)
   return (
     <div className={"users-list container"}>
       <div className={"control-buttons"}>
@@ -34,7 +28,7 @@ function UsersList({ users, deleteUser, fetchUsers }) {
         </Button>
       </div>
       <div className={"users-container"}>
-        {users.slice(firstBorder, secondBorder).map((item) => (
+        {users.slice(firstBorder, firstBorder+PAGE_STEP).map((item) => (
           <SingleUser
             key={item.id}
             {...item}
@@ -43,9 +37,13 @@ function UsersList({ users, deleteUser, fetchUsers }) {
         ))}
       </div>
         <div className={"control-buttons"}>
-            {back}
-            {currentPage}
-            {forward}
+            <Button variant="outlined" color="primary" className={"back-button"} onClick={handlePrev} disabled={firstBorder === 0}>
+                <ArrowBackRoundedIcon />
+            </Button>
+            <Button variant="contained" color="secondary">{currentPage}</Button>
+            <Button variant="outlined" color="primary" className={"back-button"} onClick={handleFow} disabled={users.length - (firstBorder+PAGE_STEP) < PAGE_STEP}>
+                <ArrowForwardRounded />
+            </Button>
         </div>
     </div>
   );
