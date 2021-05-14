@@ -1,0 +1,26 @@
+.todos-buttons {
+    width: 80%;
+}
+.todos-card-completed {
+    box-sizing: border-box;
+    width: 80%;
+    padding: 20px;
+    margin: 10px auto;
+    background-color: darkgrey;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px #4f4d4d;
+    opacity: 0.5;
+    text-align: center;
+}
+.todos-card-not-completed {
+    box-sizing: border-box;
+    width: 80%;
+    padding: 20px;
+    margin: 10px auto;
+    border: 1px solid blue;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px #4f4d4d;
+    opacity: 0.9;
+    text-align: center;
+}

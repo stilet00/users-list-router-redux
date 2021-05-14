@@ -8,23 +8,13 @@ import "./UserList.css";
 import { deleteUser, fetchUsers } from "../../../store/users/thunks";
 import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
 import AddBoxRoundedIcon from "@material-ui/icons/AddBoxRounded";
+import { useLazyLoading } from "../../../common/hooks";
 
 function UsersList({ users, deleteUser, fetchUsers }) {
-  const { currentRender, handleScroll } = useList(users, fetchUsers);
+  useList(fetchUsers);
+  const { currentRender, handleScroll } = useLazyLoading(users)
   return (
     <div className={"users-list container"}>
-      <div className={"control-buttons"}>
-        <Button variant="contained" color="primary" className={"back-button"}>
-          <Link to="/" className={"button-inner"}>
-            <ArrowBackRoundedIcon />
-          </Link>
-        </Button>
-        <Button variant="contained" color="primary" className={"back-button"}>
-          <Link to="/form" className={"button-inner"}>
-            <AddBoxRoundedIcon />
-          </Link>
-        </Button>
-      </div>
       <div className={"users-container"} onScroll={handleScroll}>
         {users.slice(0, currentRender).map((item) => (
           <SingleUser

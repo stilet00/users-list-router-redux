@@ -5,6 +5,7 @@ import store from "./store/store";
 import Form from "./components/Form/Form";
 import React from "react";
 import UserPage from "./components/UsersList/UserPage/UserPage";
+import TodoPage from "./components/TodoList/TodoPage/TodoPage";
 function App() {
   return (
     <Provider store={store}>
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" exact component={StartPage} />
           <Route path="/form" component={Form} />
           <Route path="/users" component={UserPage} />
+          <Route path="/todos" component={TodoPage} />
         </Switch>
       </BrowserRouter>
     </Provider>
