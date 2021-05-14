@@ -19,7 +19,7 @@ function TodosList ({todos, deleteTodo, fetchTodos, changeStatus}) {
                 {todos.slice(0, currentRender).map((item) => (
                     <SingleTodo
                         key={item.id}
-                        user={item}
+                        todo={item}
                         onDelete={(id) => deleteTodo(id)}
                         onChange={(id) => changeStatus(id)}
                     />
@@ -31,7 +31,7 @@ function TodosList ({todos, deleteTodo, fetchTodos, changeStatus}) {
 }
 const mapStateToProps = ({ todos }) => ({ todos: todos.todos });
 const mapDispatchToProps = (dispatch) => ({
-    creteTodo: (id) => dispatch(deleteTodo(id)),
+    deleteTodo: (id) => dispatch(deleteTodo(id)),
     fetchTodos: () => dispatch(fetchTodos()),
     changeStatus: (id) => dispatch(changeStatus(id))
 });

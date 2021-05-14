@@ -13,19 +13,19 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(2),
     },
 }));
-function SingleTodo ({user, onDelete, onChange}) {
+function SingleTodo ({todo, onDelete, onChange}) {
     const classes = useStyles();
     const { path } = useRouteMatch();
     return (
         <div className={"todos-card-not-completed"}>
-                <p>{user.title}</p>
+                <p>{todo.title}</p>
             <div className={'control-buttons todos-buttons'}>
                 <Button
                     variant="contained"
                     color="secondary"
                     onClick={(e) => {
                         e.stopPropagation();
-                        onDelete(user.id);
+                        onDelete(todo.id);
                     }}
                 >
                     <DeleteRoundedIcon />
@@ -34,8 +34,8 @@ function SingleTodo ({user, onDelete, onChange}) {
                     <InputLabel htmlFor="outlined-age-native-simple">Status:</InputLabel>
                     <Select
                         native
-                        value={user.isDone}
-                        onChange={(e) => onChange({...user, isDone: e.target.value})}
+                        value={todo.isDone}
+                        onChange={(e) => onChange({...todo, isDone: e.target.value})}
                         label="Status:"
                         inputProps={{
                             name: 'age',

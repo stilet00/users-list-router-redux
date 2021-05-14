@@ -7,7 +7,7 @@ import { Link, useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { addTodo } from "../../../store/todos/thunks";
 import { connect } from "react-redux";
-import { Formik } from 'formik';
+import { Form, Formik } from 'formik';
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
@@ -23,10 +23,10 @@ function TodoForm ({  addTodo }) {
     return (
         <Formik initialValues={{title: '', isDone: false}} onSubmit={(values) => {
             addTodo(values);
-            history.push('todos/')
-        } }>
+            history.push("/todos");
+        }}>
             { (formik) => { return (
-                <form action="" onSubmit={formik.handleSubmit}>
+                <Form action="" onSubmit={formik.handleSubmit}>
                     <FormGroup className={"container"}>
                         <TextField id="outlined-basic" label="Title:" variant="outlined" type="text"
                                    value={formik.values.title}
@@ -55,7 +55,7 @@ function TodoForm ({  addTodo }) {
                             </Link>
                         </Button>
                     </FormGroup>
-                </form>
+                </Form>
             )}
             }
         </Formik>
