@@ -10,8 +10,13 @@
     top: 30%;
     left: 25%;
     width: 50%;
-    height: 270px;
+    height: 290px;
     background: white;
     border: 1px solid black;
     border-radius: 10px;
+}
+@media (max-width: 650px) {
+    .todos-container {
+        width: 100%;
+    }
 }

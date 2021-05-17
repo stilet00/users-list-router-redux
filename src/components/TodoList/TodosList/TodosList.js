@@ -33,6 +33,6 @@ const mapStateToProps = ({ todos }) => ({ todos: todos.todos });
 const mapDispatchToProps = (dispatch) => ({
     deleteTodo: (id) => dispatch(deleteTodo(id)),
     fetchTodos: () => dispatch(fetchTodos()),
-    changeStatus: (id) => dispatch(changeStatus(id))
+    changeStatus: (editedTodo) => dispatch(changeStatus(editedTodo))
 });
 export default connect(mapStateToProps, mapDispatchToProps)(TodosList);

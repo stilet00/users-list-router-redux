@@ -5,7 +5,7 @@ import { Button } from "@material-ui/core";
 import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
 import AddBoxRoundedIcon from "@material-ui/icons/AddBoxRounded";
 
-function TodoPage (props) {
+function TodoPage () {
     const { path } = useRouteMatch();
     return (
         <>

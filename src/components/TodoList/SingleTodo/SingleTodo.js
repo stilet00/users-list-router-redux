@@ -1,23 +1,13 @@
 import React from 'react';
-import { Link, useRouteMatch } from "react-router-dom";
-import { Button, FormControl, InputLabel, MenuItem, Select } from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles';
+import { Button } from "@material-ui/core";
 import DeleteRoundedIcon from "@material-ui/icons/DeleteRounded";
+import CheckIcon from '@material-ui/icons/Check';
+import CancelIcon from '@material-ui/icons/Cancel';
 import '../SingleTodo/SingleTodo.css'
-const useStyles = makeStyles((theme) => ({
-    formControl: {
-        margin: theme.spacing(1),
-        minWidth: 120,
-    },
-    selectEmpty: {
-        marginTop: theme.spacing(2),
-    },
-}));
 function SingleTodo ({todo, onDelete, onChange}) {
-    const classes = useStyles();
-    const { path } = useRouteMatch();
+    const icon = todo.isDone ? <CancelIcon /> : <CheckIcon />
     return (
-        <div className={"todos-card-not-completed"}>
+        <div className={"todo-card" + " " + (todo.isDone ? "todos-card-completed" : "todos-card-not-completed")}>
                 <p>{todo.title}</p>
             <div className={'control-buttons todos-buttons'}>
                 <Button
@@ -30,23 +20,16 @@ function SingleTodo ({todo, onDelete, onChange}) {
                 >
                     <DeleteRoundedIcon />
                 </Button>
-                <FormControl variant="outlined" className={classes.formControl}>
-                    <InputLabel htmlFor="outlined-age-native-simple">Status:</InputLabel>
-                    <Select
-                        native
-                        value={todo.isDone}
-                        onChange={(e) => onChange({...todo, isDone: e.target.value})}
-                        label="Status:"
-                        inputProps={{
-                            name: 'age',
-                            id: 'outlined-age-native-simple',
-                        }}
-                    >
-                        <option aria-label="None" value="" />
-                        <option value={true}>Done</option>
-                        <option value={false}>Not done</option>
-                    </Select>
-                </FormControl>
+                <Button
+                    variant="contained"
+                    color={todo.isDone ? "primary" : "secondary"}
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        onChange({...todo, isDone: !todo.isDone})
+                    }}
+                >
+                    {icon}
+                </Button>
             </div>
 
         </div>

@@ -13,9 +13,8 @@ export function remove(todoId) {
 }
 export function add(data) {
     return axios.post(BASE_TODOS_URL, {
-        name: data.name,
-        surname: data.email,
-        phone: data.phone,
+        title: data.title,
+        isDone: data.isDone
     });
 }
 export function edit({ id, title, isDone }) {
