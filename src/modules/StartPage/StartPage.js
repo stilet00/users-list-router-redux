@@ -8,9 +8,9 @@ function StartPage(props) {
       <Button variant="outlined" type={"button"}>
         <Link to="/users/">Users list</Link>
       </Button>
-        <Button variant="outlined" type={"button"}>
-            <Link to="/todos/">Todos list</Link>
-        </Button>
+      <Button variant="outlined" type={"button"}>
+        <Link to="/todos/">Todos list</Link>
+      </Button>
     </div>
   );
 }

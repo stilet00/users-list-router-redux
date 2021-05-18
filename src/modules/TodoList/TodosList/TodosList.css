@@ -1,0 +1,22 @@
+.todos-container {
+  position: relative;
+  width: 50%;
+  height: 80vh;
+  margin: 10px auto;
+  overflow-y: scroll;
+}
+.modal {
+  position: fixed;
+  top: 30%;
+  left: 25%;
+  width: 50%;
+  height: 290px;
+  background: white;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+@media (max-width: 650px) {
+  .todos-container {
+    width: 100%;
+  }
+}

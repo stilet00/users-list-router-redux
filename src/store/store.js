@@ -3,7 +3,8 @@ import users from "./users/reducers";
 import todos from "./todos/reducers";
 import thunk from "redux-thunk";
 const rootReducer = combineReducers({
-  users, todos
+  users,
+  todos,
 });
 const enchancer = applyMiddleware(thunk);
 const store = createStore(rootReducer, enchancer);

@@ -13,5 +13,5 @@ export const addTodo = (newTodo) => (dispatch) => {
 };
 
 export const changeStatus = (editedTodo) => (dispatch) => {
-  edit(editedTodo).then(res => dispatch(change(editedTodo)))
+  edit(editedTodo).then((res) => dispatch(change(editedTodo)));
 };
